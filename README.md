@@ -18,19 +18,6 @@ A simple, local time tracking web application with calendar interface. Built wit
 docker-compose up --build
 
 # Access the app at http://localhost:8000
-```
-
-## Quick Start with uv (Local Development)
-
-```bash
-# Install dependencies
-uv pip install -r pyproject.toml
-
-# Run the application
-uvicorn main:app --reload
-
-# Access the app at http://localhost:8000
-```
 
 ## Usage
 
@@ -58,7 +45,7 @@ The application comes pre-populated with sample data from October 25-31, 2024 to
 
 ## Project Structure
 
-```
+
 time-tracker/
 ├── main.py              # FastAPI application
 ├── database.py          # Database operations
@@ -69,7 +56,7 @@ time-tracker/
     ├── index.html       # Frontend HTML
     ├── styles.css       # Styling
     └── app.js           # Frontend logic
-```
+
 
 ## API Endpoints
 

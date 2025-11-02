@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  time-tracker:
+    build: .
+    ports:
+      - "8765:8000"
+    volumes:
+      - time_tracker_data:/app/data
+      - ./main.py:/app/main.py
+      - ./database.py:/app/database.py
+      - ./static:/app/static
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+
+volumes:
+  time_tracker_data:

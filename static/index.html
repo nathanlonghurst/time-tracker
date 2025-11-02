@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Calendar View -->
+        <div id="calendar-view" class="view active">
+            <div class="header">
+                <h1>Time Tracker</h1>
+            </div>
+            <div class="calendar-controls">
+                <button id="prev-month" class="nav-btn">&larr;</button>
+                <h2 id="current-month"></h2>
+                <button id="next-month" class="nav-btn">&rarr;</button>
+            </div>
+            <div id="calendar-grid"></div>
+        </div>
+
+        <!-- Entry View -->
+        <div id="entry-view" class="view">
+            <div class="header">
+                <button id="back-btn" class="back-btn">&larr; Back to Calendar</button>
+                <h2 id="entry-date"></h2>
+            </div>
+            <div class="entry-container">
+                <div class="entries-column">
+                    <h3>Time Entries</h3>
+                    <div id="entries-list"></div>
+                    <button id="add-entry-btn" class="btn btn-secondary">+ Add Entry</button>
+                </div>
+                <div class="summary-column">
+                    <h3>Summary</h3>
+                    <div class="summary-box">
+                        <div class="summary-item">
+                            <span class="label">Total Hours:</span>
+                            <span id="total-hours" class="value">0.00</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Total Minutes:</span>
+                            <span id="total-minutes" class="value">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <button id="save-btn" class="btn btn-primary">Save Time Entries</button>
+            </div>
+            <div class="journal-section">
+                <h3>Journal</h3>
+                <textarea id="journal-text" placeholder="Write about your day..."></textarea>
+                <div class="actions">
+                    <button id="save-journal-btn" class="btn btn-primary">Save Journal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

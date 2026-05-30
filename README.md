@@ -2,6 +2,8 @@
 
 A simple, local time tracking web application with calendar interface. Built with FastAPI, SQLite, and vanilla JavaScript.
 
+![Time Tracker day view](screenshot.png)
+
 ## Features
 
 - **Calendar View**: Monthly calendar showing all your logged hours

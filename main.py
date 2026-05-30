@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -5,7 +6,15 @@ from pydantic import BaseModel
 from typing import List, Optional
 import database
 
-app = FastAPI(title="Time Tracker API")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    database.init_db()
+    database.seed_sample_data()
+    yield
+
+
+app = FastAPI(title="Time Tracker API", lifespan=lifespan)
 
 # Mount static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -22,12 +31,6 @@ class SaveEntriesRequest(BaseModel):
 class SaveJournalRequest(BaseModel):
     date: str
     content: str
-
-@app.on_event("startup")
-async def startup_event():
-    """Initialize database and seed sample data on startup."""
-    database.init_db()
-    database.seed_sample_data()
 
 @app.get("/")
 async def root():
